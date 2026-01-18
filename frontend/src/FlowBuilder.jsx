@@ -94,7 +94,11 @@ const initialNodes = [
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+let apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+if (!apiUrl.startsWith('http')) {
+  apiUrl = `https://${apiUrl}`;
+}
+const API_BASE_URL = apiUrl;
 
 const FlowBuilder = () => {
   const reactFlowWrapper = useRef(null);
