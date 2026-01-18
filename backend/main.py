@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException, Body
 from sqlalchemy.orm import Session
-from . import models, schemas, database, ledger_service, rules_engine
+import models, schemas, database, ledger_service, rules_engine
 from typing import List, Dict, Any
 
 models.Base.metadata.create_all(bind=database.engine)
